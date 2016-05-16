@@ -64,7 +64,7 @@ const char laughing[] =     "#include <stdio.h>\n#include <fcntl.h>\n#include <"
 
 int main(void)
 {
-	int i = 5;
+	int i = 4;
 	if (strcmp(__FILE__, "Sully.c"))
 		--i;
 	int copy = i;
