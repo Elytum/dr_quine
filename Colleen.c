@@ -1,4 +1,6 @@
-/* Le commentaire dans l'introduction */
+/*
+     This program will print its own source when run._0
+*/
 
 #include <stdio.h>
 
@@ -23,27 +25,29 @@ void quote(const char *s)
 }
 
 const char progdata[] =
-    "/* Le commentaire dans l'introduction */\n\n#inclu"
-    "de <stdio.h>\n\nvoid quote(const char *s)\n{\n    in"
-    "t i;\n\n    printf(\"    \\\"\");\n    for (i=0; s[i]; "
-    "++i) {\n        if (s[i] == '\\\\')\n            pri"
-    "ntf(\"\\\\\\\\\");\n        else if (s[i] == '\"')\n     "
-    "       printf(\"\\\\\\\"\");\n        else if (s[i] == "
-    "'\\n')\n            printf(\"\\\\n\");\n        else\n  "
-    "          printf(\"%c\", s[i]);\n        if (i % 48"
-    " == 47)\n            printf(\"\\\"\\n    \\\"\");\n    }\n"
-    "    printf(\"\\\"\");\n}\n\nconst char progdata[] =\n@@;"
-    "\n\nint main(void)\n{\n    /* Le commentaire dans le"
-    " main */\n    int i;\n\n    for (i=0; progdata[i]; "
-    "++i) {\n        if (progdata[i] == '@' && progdat"
-    "a[i+1] == '@')\n        {\n            quote(progd"
-    "ata);\n            i++;\n        } else\n          "
-    "  printf(\"%c\", progdata[i]);\n    }\n    return 0;"
-    "\n}\n";
+    "/*\n     This program will print its own source w"
+    "hen run._0\n*/\n\n#include <stdio.h>\n\nvoid quote(co"
+    "nst char *s)\n{\n    int i;\n\n    printf(\"    \\\"\");"
+    "\n    for (i=0; s[i]; ++i) {\n        if (s[i] == "
+    "'\\\\')\n            printf(\"\\\\\\\\\");\n        else i"
+    "f (s[i] == '\"')\n            printf(\"\\\\\\\"\");\n    "
+    "    else if (s[i] == '\\n')\n            printf(\"\\"
+    "\\n\");\n        else\n            printf(\"%c\", s[i]"
+    ");\n        if (i % 48 == 47)\n            printf("
+    "\"\\\"\\n    \\\"\");\n    }\n    printf(\"\\\"\");\n}\n\nconst "
+    "char progdata[] =\n@@;\n\nint main(void)\n{\n/*\n    T"
+    "his program will print its own source when run._"
+    "1\n*/\n    int i;\n\n    for (i=0; progdata[i]; ++i)"
+    " {\n        if (progdata[i] == '@' && progdata[i+"
+    "1] == '@')\n        {\n            quote(progdata)"
+    ";\n            i++;\n        } else\n            pr"
+    "intf(\"%c\", progdata[i]);\n    }\n    return 0;\n}\n";
 
 int main(void)
 {
-    /* Le commentaire dans le main */
+/*
+    This program will print its own source when run._1
+*/
     int i;
 
     for (i=0; progdata[i]; ++i) {

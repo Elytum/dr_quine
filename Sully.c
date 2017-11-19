@@ -50,23 +50,26 @@ const char laughing[] =
     "lse\n			dprintf(fd, \"%%c\", s[i]);\n		if (i %% 48 ="
     "= 47)\n			dprintf(fd, \"\\\"\\n    \\\"\");\n		}\n	dprintf"
     "(fd, \"\\\"\");\n}\n\nconst char laughing[] =\n	@@;\n\nint"
-    " main(void)\n{\n	int i = $$;\n	if (strcmp(basename("
-    "__FILE__), \"Sully.c\"))\n		--i;\n	int copy = i;\n	ch"
-    "ar buffer[42];\n	snprintf(buffer, sizeof(buffer),"
-    " \"Sully_%%d.c\", i);\n	int fd = open(buffer, O_RDW"
-    "R | O_CREAT | O_SYNC, 0777);\n\n	for (i=0; laughin"
-    "g[i]; ++i) {\n		if (laughing[i] == '@' && laughin"
-    "g[i+1] == '@')\n		{\n			out(fd, laughing);\n			i++;"
-    "\n		}\n		else if (laughing[i] == '$' && laughing[i"
-    "+1] == '$')\n		{\n			dprintf(fd, \"%%d\", copy);\n			"
-    "i++;\n		}\n		else if (laughing[i] == '%%')\n		{\n			"
-    "dprintf(fd, \"%%%%\");\n			++i;\n		}\n		else\n			dprin"
-    "tf(fd, \"%%c\", laughing[i]);\n	}\n	close(fd);\n	loud"
-    "(copy);\n	return 0;\n}\n";
+    " main(void)\n{\n	int i = $$;\n    if (i<0)\n        "
+    "return (-1);\n	if (strcmp(basename(__FILE__), \"Su"
+    "lly.c\"))\n		--i;\n	int copy = i;\n	char buffer[42];"
+    "\n	snprintf(buffer, sizeof(buffer), \"Sully_%%d.c\""
+    ", i);\n	int fd = open(buffer, O_RDWR | O_CREAT | "
+    "O_SYNC, 0777);\n\n	for (i=0; laughing[i]; ++i) {\n	"
+    "	if (laughing[i] == '@' && laughing[i+1] == '@')"
+    "\n		{\n			out(fd, laughing);\n			i++;\n		}\n		else if"
+    " (laughing[i] == '$' && laughing[i+1] == '$')\n		"
+    "{\n			dprintf(fd, \"%%d\", copy);\n			i++;\n		}\n		els"
+    "e if (laughing[i] == '%%')\n		{\n			dprintf(fd, \"%"
+    "%%%\");\n			++i;\n		}\n		else\n			dprintf(fd, \"%%c\", "
+    "laughing[i]);\n	}\n	close(fd);\n	loud(copy);\n	retur"
+    "n 0;\n}\n";
 
 int main(void)
 {
 	int i = 5;
+    if (i<0)
+        return (-1);
 	if (strcmp(basename(__FILE__), "Sully.c"))
 		--i;
 	int copy = i;
