@@ -41,8 +41,8 @@ const char progdata[] =
     "   for (i=0; progdata[i]; ++i) {\n        if (pro"
     "gdata[i] == '@' && progdata[i+1] == '@')\n       "
     " {\n            quote(progdata);\n            i++;"
-    "\n        } else\n        std::cout << progdata[i]"
-    ";\n    }\n    return 0;\n}\n";
+    "\n        } else\n            std::cout << progdat"
+    "a[i];\n    }\n    return 0;\n}\n";
 
 int main(void)
 {
